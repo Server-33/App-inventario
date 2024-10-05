@@ -1,0 +1,25 @@
+Como iniciar >
+
+>Despues de clonar el proyecto, instalamos
+
+npm i
+
+>Iniciamos con fireStore
+
+firebase init
+
+>Ahi seleccinaremos el proyecto al que queremos ligar el app,
+por lo general hay que logearse con la cuenta del mismo proyecto*,
+se crea una base de datos y las nuevas key se aplican en el archivo .enviroment
+
+
+*: firebase login
+
+>Ahora corremos el servidor
+
+ng serve
+
+................................
+Angular 17
+node 18.19
+firebase, cli ,mtools
