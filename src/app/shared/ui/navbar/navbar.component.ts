@@ -1,15 +1,18 @@
-import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { CommonModule } from "@angular/common";
+import { Component } from "@angular/core";
 
-import { RouterLink, RouterLinkActive } from '@angular/router';
+import { Router, RouterLink, RouterLinkActive } from "@angular/router";
 
-import { IconContact } from '../icons/contact';
+import { IconContact } from "../icons/contact";
+import { AutorizacionService } from "../../../e-medic/autorizacion.service";
 
 @Component({
-  selector: 'app-navbar',
+  selector: "app-navbar",
   standalone: true,
   template: `
-    <nav class="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-700 text-left w-full ">
+    <nav
+      class="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-700 text-left w-full "
+    >
       <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
         <div class="relative flex h-16 items-center justify-between">
           <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
@@ -141,27 +144,13 @@ import { IconContact } from '../icons/contact';
                 aria-labelledby="user-menu-button"
                 tabindex="-1"
               >
-                <a
-                  class="block px-4 py-2 text-sm text-gray-700"
-                  role="menuitem"
-                  tabindex="-1"
-                  id="user-menu-item-0"
-                  >Perfil</a
-                >
-                <a
-                  class="block px-4 py-2 text-sm text-gray-700"
-                  role="menuitem"
-                  tabindex="-1"
-                  id="user-menu-item-1"
-                  >Ajustes</a
-                >
-                <a
-                  class="block px-4 py-2 text-sm text-red-700"
+                <button
+                  (click)="logout()"
+                  class="block px-4 py-2 text-sm text-red-700 cursor-pointer"
                   role="menuitem"
                   tabindex="-1"
                   id="user-menu-item-2"
-                  >Cerrar Sesión</a
-                >
+                  >Cerrar Sesión</button>
               </div>
             </div>
           </div>
@@ -173,15 +162,15 @@ import { IconContact } from '../icons/contact';
         <div class="space-y-1 px-2 pb-3 pt-2">
           <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
           <a
-            href="#"
+            routerLink="/medic"
             class="bg-gray-900 text-white block rounded-md px-3 py-2 text-base font-medium"
             aria-current="page"
-            >Dashboard</a
+            >inventario</a
           >
           <a
-            href="#"
+             routerLink="/addProduct"
             class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium"
-            >Team</a
+            >Nuevo producto</a
           >
         </div>
       </div>
@@ -190,11 +179,20 @@ import { IconContact } from '../icons/contact';
   imports: [IconContact, RouterLink, CommonModule, RouterLinkActive],
 })
 export class NavbarComponent {
-  logo = './assets/logo-medic.png';
+  logo = "./assets/logo-medic.png";
   img_perfil =
-    'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80';
+    "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80";
   isMenuOpen = false;
   isNavOpen = false;
+
+
+  constructor(private authService: AutorizacionService, private router: Router) {}
+
+  // Cerrar sesion
+  logout(){
+    this.authService.logout();
+    this.router.navigate(['/login']);
+  }
 
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;

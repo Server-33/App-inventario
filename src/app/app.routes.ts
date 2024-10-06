@@ -1,21 +1,18 @@
 import { Routes } from '@angular/router';
+import { AuthGuard } from './e-medic/login.guard';
 
 export const routes: Routes = [
-  // {
-  //   path: '',
-  //   loadChildren: () =>
-  //     import('./contacts/features/contact-shell/contact-shell.routes'),
-  // },
   {
     path: '',
     loadChildren: () => import('./e-medic/medic.routes'),
+    canActivate: [AuthGuard],
   },
-  // {
-  //   path: '',
-  //   loadChildren: () => import('./home/home.routes'),
-  // },
+  {
+    path: 'login',
+    loadComponent: () => import('./e-medic/login/login.component')
+  },
   {
     path: '**',
-    redirectTo: '',
+    redirectTo: '/',
   },
 ];
