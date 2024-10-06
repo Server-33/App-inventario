@@ -5,8 +5,8 @@ import { CardContactComponent } from '../../ui/card-contact/card-contact.compone
 import { Contact } from '../../shared/interfaces/contacts.interface';
 import { SearchBarComponent } from '../../ui/search-bar/search-bar.component';
 import { AsyncPipe } from '@angular/common';
-import { ContactsService } from '../../data-access/contacts.service';
 import { of } from 'rxjs/internal/observable/of';
+import { ContactsService } from '../../data-access/contacts.service';
 
 @Component({
   selector: 'app-contact-dashboard',
@@ -35,7 +35,7 @@ export default class ContactDashboardComponent  {
   contacts$ = this._contactService.getContacts();
 
   constructor(){
-    console.log('desde contruc :>> ', this.contacts$);
+    // console.log('desde contruc :>> ', this.contacts$);
   }
 
   async deleteContact(id: string) {

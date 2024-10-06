@@ -1,15 +1,15 @@
-import { Component, inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { SearchBarComponent } from '../../components/search-bar/search-bar.component';
-import { Router } from '@angular/router';
-import { SociosService } from '../../data/socios.service';
-import { Contact } from '../../../contacts/shared/interfaces/contacts.interface';
-import { of } from 'rxjs';
-import { CardSocioComponent } from '../../components/card-socio/card-socio.component';
-import { Socio } from '../../interfaces/socio.interface';
+import { Component, inject } from "@angular/core";
+import { CommonModule } from "@angular/common";
+import { SearchBarComponent } from "../../components/search-bar/search-bar.component";
+import { Router } from "@angular/router";
+import { SociosService } from "../../data/socios.service";
+import { Contact } from "../../../contacts/shared/interfaces/contacts.interface";
+import { of } from "rxjs";
+import { CardSocioComponent } from "../../components/card-socio/card-socio.component";
+import { Socio } from "../../interfaces/socio.interface";
 
 @Component({
-  selector: 'app-socios-dashboard',
+  selector: "app-socios-dashboard",
   template: `
     <div class="px-4 xl:px-0 w-full max-w-[1200px] m-auto">
       <app-search-bar (changeQuery)="changeQuery($event)" />
@@ -42,7 +42,7 @@ export default class SociosDashboardComponent {
   }
 
   editSocio(socio: Socio) {
-    this._router.navigate(['/usuarios/edit', socio.id]);
+    this._router.navigate(["/usuarios/edit", socio.id]);
   }
 
   async changeQuery(query: string) {

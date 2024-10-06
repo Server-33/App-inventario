@@ -78,13 +78,13 @@ import { IconContact } from '../icons/contact';
                   class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
                   >Inventario</a
                 >
-                <!-- <a
-                  routerLink="/socios"
-                  routerLinkActive="bg-red-900 text-white"
-                  class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
-                  >Socios</a
-                >
                 <a
+                  routerLink="/addProduct"
+                  routerLinkActive="bg-sky-800"
+                  class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
+                  >Nuevo producto</a
+                >
+                <!-- <a
                   routerLink="/login"
                   class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
                   >Login</a

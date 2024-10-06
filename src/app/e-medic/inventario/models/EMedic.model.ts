@@ -3,10 +3,10 @@ export interface EMedic extends EmedicForm {
 }
 
 export interface EmedicForm {
-  nombre: string;
-  categoria: string;
-  cantidad: number;
-  precio: number;
+  nombre?: string;
+  categoria?: string;
+  cantidad?: number;
+  precio?: number;
   descripcion?: string;
   fecha_agregado?: string;
   proveedor?: string;
